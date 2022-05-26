@@ -20,7 +20,7 @@ void choose();
 void fill_bin();
 void start();
 void menu();
-char medium_cpu(int skip);
+char medium_cpu();
 char easy_cpu();
 int check(char disc, int mode, int limit);
 int mode = 0;
@@ -131,7 +131,7 @@ void choose()
         }
         else if (mode == medium)
         {
-            c = medium_cpu(0);
+            c = medium_cpu();
         }
 
         switch (c)
@@ -192,7 +192,7 @@ void fill_bin()
     }
 }
 
-int check(char disc, int mode, int limit)
+int check(char disc, int checkMode, int limit)
 {
 
     int i, j, k;
@@ -200,6 +200,7 @@ int check(char disc, int mode, int limit)
 
     int ways = 4;
     int response = 0;
+    // row check
     for (i = 0; i < ROWS; ++i)
     {
         for (j = 0; j < ways; ++j)
@@ -211,7 +212,7 @@ int check(char disc, int mode, int limit)
                     count++;
             }
             if (count == limit)
-                if (mode == 0)
+                if (checkMode == 0)
                     return 1;
                 else if (scores[i][j + k] == ' ')
                     return j + k + 1;
@@ -219,7 +220,7 @@ int check(char disc, int mode, int limit)
     }
 
     ways = 3;
-
+    // column check
     for (j = 0; j < COLS; ++j)
 
     {
@@ -232,7 +233,7 @@ int check(char disc, int mode, int limit)
                     count++;
             }
             if (count == limit)
-                if (mode == 0)
+                if (checkMode == 0)
                     return 1;
                 else if (scores[i + k + 1][j] == ' ')
                     return j - 1;
@@ -252,7 +253,7 @@ int check(char disc, int mode, int limit)
                 {
                     count++;
                     if (count == limit)
-                        if (mode == 0)
+                        if (checkMode == 0)
                             return 1;
                         else if (scores[ii][jj] == ' ')
                             return jj;
@@ -267,7 +268,7 @@ int check(char disc, int mode, int limit)
                 {
                     count++;
                     if (count == limit)
-                        if (mode == 0)
+                        if (checkMode == 0)
                             return 1;
                         else if (scores[ii][jj] == ' ')
                             return jj;
@@ -283,7 +284,7 @@ int check(char disc, int mode, int limit)
                 {
                     count++;
                     if (count == limit)
-                        if (mode == 0)
+                        if (checkMode == 0)
                             return 1;
                         else if (scores[ii][jj] == ' ')
                             return jj;
@@ -297,7 +298,7 @@ int check(char disc, int mode, int limit)
                 {
                     count++;
                     if (count == limit)
-                        if (mode == 0)
+                        if (checkMode == 0)
                             return 1;
                         else if (scores[ii][jj] == ' ')
                             return jj;
@@ -322,7 +323,7 @@ char easy_cpu()
         return easy_cpu();
 }
 
-char medium_cpu(int skip)
+char medium_cpu()
 {
     int response = 0;
     if (check('O', 0, 3))
@@ -331,19 +332,19 @@ char medium_cpu(int skip)
         if (response >= 1 && response <= 7)
             return response;
     }
-    if (check('X', 0, 3) && skip == 1)
+    if (check('X', 0, 3))
     {
         response = check('X', 1, 3);
         if (response >= 1 && response <= 7)
             return response;
     }
-    if (check('O', 0, 2) && skip == 2)
+    if (check('O', 0, 2))
     {
         response = check('O', 1, 2);
         if (response >= 1 && response <= 7)
             return response;
     }
-    if (check('O', 0, 1) && skip == 3)
+    if (check('O', 0, 1))
     {
         response = check('O', 1, 1);
         if (response >= 1 && response <= 7)
