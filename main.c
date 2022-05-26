@@ -49,7 +49,8 @@ void start()
 {
     while (1)
     {
-        (mode > 1) ? disc == 'X' ? printf("\nPlayer's turn\n") : printf("\nCPU's turn\n") : printf("Player %c, your turn!\n", disc);
+        // what to print according to mode and players' turn
+        (mode != coop) ? disc == 'X' ? printf("\nPlayer's turn\n") : printf("\nCPU's turn\n") : printf("Player %c, your turn!\n", disc);
         choose();
         printf("\n\n");
         board();
