@@ -324,21 +324,21 @@ char easy_cpu()
 char medium_cpu(int skip)
 {
     int response = 0;
-    if (check('O', 0, 3) && skip == 1)
+    if (check('O', 0, 3) && skip == 0)
     {
         response = check('O', 1, 3);
         if (response >= 1 && response <= 7)
             return response;
         else
-            medium_cpu(2);
+            medium_cpu(1);
     }
-    else if (check('X', 0, 3) && skip == 0)
+    else if (check('X', 0, 2) && skip == 1)
     {
         response = check('X', 1, 3);
         if (response >= 1 && response <= 7)
             return response;
         else
-            medium_cpu(1);
+            medium_cpu(2);
     }
 
     else if (check('O', 0, 2) && skip == 2)
