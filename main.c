@@ -234,7 +234,7 @@ int check(char disc, int mode, int limit)
                 if (mode == 0)
                     return 1;
                 else if (scores[i + k + 1][j] == ' ')
-                    return j-1;
+                    return j - 1;
         }
     }
 
@@ -259,7 +259,7 @@ int check(char disc, int mode, int limit)
                 else
                     break;
             }
-            // right-downwards:
+
             for (ii = i + 1, jj = j + 1; (ii <= ROWS - 1) || (jj <= COLS - 1); ii++, jj++)
             {
                 if (scores[ii][jj] == disc)
