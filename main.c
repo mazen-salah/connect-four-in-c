@@ -49,7 +49,7 @@ void start()
 {
     while (1)
     {
-        printf("Player %c, your turn!\n", disc);
+        (mode > 1) ? disc == 'X' ? printf("\nPlayer's turn\n") : printf("\nCPU's turn\n") : printf("Player %c, your turn!\n", disc);
         choose();
         printf("\n\n");
         board();
@@ -60,7 +60,7 @@ void start()
         }
         if (check('O', 0, 4))
         {
-            printf("\n\nPlayer O wins!\n\n");
+            mode == 1 ? printf("\n\nPlayer O wins!\n\n") : printf("\n\nCPU wins!\n\n");
             break;
         }
     }
