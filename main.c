@@ -332,7 +332,7 @@ char medium_cpu(int skip)
         else
             medium_cpu(1);
     }
-    else if (check('X', 0, 2) && skip == 1)
+    else if (check('X', 0, 3) && skip == 1)
     {
         response = check('X', 1, 3);
         if (response >= 1 && response <= 7)
