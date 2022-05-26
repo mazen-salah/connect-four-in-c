@@ -61,7 +61,7 @@ void start()
         }
         if (check('O', 0, 4))
         {
-            mode == 1 ? printf("\n\nPlayer O wins!\n\n") : printf("\n\nCPU wins!\n\n");
+            mode == coop ? printf("\n\nPlayer O wins!\n\n") : printf("\n\nCPU wins!\n\n");
             break;
         }
     }
