@@ -395,7 +395,7 @@ char easy_cpu()
     time_t t1;
     srand(time(0));
     int n = (rand()) % 7;
-    if (n <= 7)
+    if (n >= 1 && n <= 7)
         return (n);
     else
         return easy_cpu();
