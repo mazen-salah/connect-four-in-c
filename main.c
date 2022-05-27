@@ -395,10 +395,10 @@ char easy_cpu()
     time_t t1;
     srand(time(0));
     int n = (rand()) % 7;
-    if (n >= 1 && n <= 7)
-        return (n);
-    else
+    if (n < 1 || n > 7)
         return easy_cpu();
+    else
+        return (n);
 }
 
 /**
