@@ -432,13 +432,6 @@ char medium_cpu()
         if (response >= 1 && response <= 7)
             return response;
     }
-    // checking if there's a disc of the same color in a row, column or diagonal.
-    if (check('O', 0, 1))
-    {
-        response = check('O', 1, 1);
-        if (response >= 1 && response <= 7)
-            return response;
-    }
 
     return easy_cpu();
 }
